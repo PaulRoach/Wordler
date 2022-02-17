@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+body{
+  background-color: #2b2b2b;
+}
+
+.title{
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+}
+
+.game{
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-container{
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  gap: 10px 10px;
+  align-content: center;
+}
+
+.grid-item{
+  height: 75px;
+  width: 75px;
+  border-color: white;
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  color: white;
+}
