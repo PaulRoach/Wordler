@@ -130,3 +130,6 @@ body{
   height: 90px;
   margin: 20px;
 }
+#share-results:hover{
+  background-color: #363636;
+}

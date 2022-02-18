@@ -109,27 +109,27 @@ function checkGuess() {
   }
   if (current_guess.join("") == correct_word.join("")) {
     enabled = false;
-    triggerVictory(guessNumber);
+    triggerVictory();
   }
   else if (guessNumber >= maxGuesses) {
     triggerLoss();
   }
 }
 
-function triggerVictory(guesses) {
+function triggerVictory() {
   document.getElementById("results-modal").style.display = "block";
-  document.getElementById("guess-count").innerHTML = `You completed the puzzle in ${guesses} guesses!`;
+  document.getElementById("guess-count").innerHTML = `You completed the puzzle in ${guessNumber} guesses!`;
   document.getElementById("main-result").innerHTML = "Nice work!";
-  document.getElementById("share-results").addEventListener("click", shareResults(guesses));
+  document.getElementById("share-results").addEventListener("click", shareResults);
 }
 function triggerLoss() {
   document.getElementById("results-modal").style.display = "block";
   document.getElementById("main-result").innerHTML = "Good attempt!";
   document.getElementById("extra-note").innerHTML = "Try again tomorrow!";
 }
-function shareResults(tries) {
+function shareResults() {
   const shareData = {
-    text: `I completed the daily Disnerdle puzzle in ${tries} guesses!\r\n`,
+    text: `I completed the daily Disnerdle puzzle in ${guessNumber} guesses!\r\n`,
     url: ""
   }
   navigator.share(shareData);
