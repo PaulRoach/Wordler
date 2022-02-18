@@ -119,7 +119,7 @@ function triggerVictory(guesses) {
   document.getElementById("results-modal").style.display = "block";
   document.getElementById("guess-count").innerHTML = `You completed the puzzle in ${guesses} guesses!`;
   document.getElementById("main-result").innerHTML = "Nice work!";
-  document.getElementById("share-results").addEventListener("click", shareResults);
+  document.getElementById("share-results").addEventListener("click", shareResults(guesses));
 }
 function triggerLoss() {
   document.getElementById("results-modal").style.display = "block";
