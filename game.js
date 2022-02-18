@@ -1,5 +1,5 @@
 var wordLength = 5;
-var correct_word = ['S', 'C', 'R', 'O', 'O', 'G', 'E'];
+var correct_word = ['C', 'H', 'E', 'S', 'H', 'I', 'R', 'E'];
 const maxLength = 8;
 const maxGuesses = 7;
 var current_guess = [];
@@ -24,10 +24,15 @@ function keypressHandler(key) {
       backspaceGuess();
     }
     else if (key == "Enter") {
-      checkGuess();
-      guessNumber++;
-      guessLength = 0;
-      current_guess = [];
+      if (current_guess.length < 4) {
+        alert("Please enter at least 4 characters");
+      }
+      else {
+        checkGuess();
+        guessNumber++;
+        guessLength = 0;
+        current_guess = [];
+      }
     }
     else if (alphabet.includes(key.toUpperCase())) {
       addToGuess(key.toUpperCase());
@@ -90,6 +95,15 @@ function checkGuess() {
           break;
         }
       }
+    }
+  }
+  for (let i = 0; i < current_guess.length; i++) {
+    let classes = word_guesses.children[i].classList;
+    if (classes.contains("in-word") || classes.contains("correct")) {
+      continue;
+    }
+    else {
+      word_guesses.children[i].classList.add("incorrect");
     }
   }
   if (current_guess.join("") == correct_word.join("")) {

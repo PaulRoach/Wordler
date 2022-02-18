@@ -61,6 +61,10 @@ body{
   border: 2px solid transparent;
   background-color: #3a9e3a;
 }
+.incorrect{
+  border: 2px solid transparent;
+  background-color: #535353;
+}
 
 .modal {
   display: none; /* Hidden by default */
