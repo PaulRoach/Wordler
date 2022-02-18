@@ -11,6 +11,14 @@ const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M
 
 document.addEventListener('keydown', function (event) {
   var key = event.key;
+  keypressHandler(key);
+}, false);
+
+function virtualKeyPress(key) {
+  keypressHandler(key);
+}
+
+function keypressHandler(key) {
   if (enabled) {
     if (key == "Backspace") {
       backspaceGuess();
@@ -25,7 +33,7 @@ document.addEventListener('keydown', function (event) {
       addToGuess(key.toUpperCase());
     }
   }
-}, false);
+}
 
 function addToGuess(letter) {
   if (guessLength < 8) {

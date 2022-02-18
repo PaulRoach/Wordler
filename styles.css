@@ -22,6 +22,7 @@ body{
   height: 600px;
   display: flex;
   justify-content: center;
+  padding-bottom: 20px;
 }
 
 .word-guess-container{
@@ -81,4 +82,37 @@ body{
   padding: 20px;
   width: 50%;
   text-align: center;
+}
+
+.virtual-keyboard{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.keys-row{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.key{
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  background-color: #707070;
+  color: white;
+  padding: 0px;
+  margin: 5px;
+  border: none;
+  box-shadow: none;
+}
+.special{
+  width: 75px;
+}
+.key:hover{
+  color: black;
+  background-color: #bbbbbb;
 }
