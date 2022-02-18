@@ -126,10 +126,10 @@ function triggerLoss() {
   document.getElementById("main-result").innerHTML = "Good attempt!";
   document.getElementById("extra-note").innerHTML = "Try again tomorrow!";
 }
-function shareResults() {
+function shareResults(tries) {
   const shareData = {
-    text: "I completed the daily Disneydle puzzle!",
-    url: "www.paultroach.com"
+    text: `I completed the daily Disnerdle puzzle in ${tries} guesses!\r\n`,
+    url: ""
   }
   navigator.share(shareData);
 }
