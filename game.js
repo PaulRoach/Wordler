@@ -1,5 +1,5 @@
 var wordLength = 5;
-var correct_word = ['C', 'H', 'E', 'S', 'H', 'I', 'R', 'E'];
+var correct_word = ['R', 'A', 'P', 'U', 'N', 'Z', 'E', 'L'];
 const maxLength = 8;
 const maxGuesses = 7;
 var current_guess = [];
@@ -66,7 +66,6 @@ function updateTileLetters() {
   }
 }
 function checkGuess() {
-  console.log(guessNumber);
   if (guessNumber >= maxGuesses) {
     enabled = false;
   }
@@ -88,11 +87,13 @@ function checkGuess() {
   }
   for (let i = 0; i < current_guess.length; i++) {
     if (temp_correct_word.includes(current_guess[i])) {
-      word_guesses.children[i].classList.add("in-word");
-      for (let j = 0; j < temp_correct_word.length; j++) {
-        if (current_guess[i] == temp_correct_word[j]) {
-          temp_correct_word.splice(j, 1);
-          break;
+      if (!word_guesses.children[i].classList.contains("correct")) {
+        word_guesses.children[i].classList.add("in-word");
+        for (let j = 0; j < temp_correct_word.length; j++) {
+          if (current_guess[i] == temp_correct_word[j]) {
+            temp_correct_word.splice(j, 1);
+            break;
+          }
         }
       }
     }
