@@ -1,6 +1,7 @@
 var wordLength = 5;
 var correct_word = ['S', 'C', 'R', 'O', 'O', 'G', 'E'];
 const maxLength = 8;
+const maxGuesses = 7;
 var current_guess = [];
 var guessLength = 0;
 var guessNumber = 1;
@@ -15,7 +16,6 @@ document.addEventListener('keydown', function (event) {
       backspaceGuess();
     }
     else if (key == "Enter") {
-      // console.log("enter");
       checkGuess();
       guessNumber++;
       guessLength = 0;
@@ -31,7 +31,6 @@ function addToGuess(letter) {
   if (guessLength < 8) {
     current_guess.push(letter);
     guessLength = guessLength + 1;
-    // console.log(`Guess ${current_guess}\r\nLetters ${guessLength}`);
     updateTileLetters();
   }
 }
@@ -39,7 +38,6 @@ function backspaceGuess() {
   if (guessLength > 0) {
     current_guess.pop();
     guessLength = guessLength - 1;
-    // console.log(`Guess ${current_guess}\r\nLetters ${guessLength}`);
     updateTileLetters();
   }
 }
@@ -55,6 +53,10 @@ function updateTileLetters() {
   }
 }
 function checkGuess() {
+  console.log(guessNumber);
+  if (guessNumber >= maxGuesses) {
+    enabled = false;
+  }
   let temp_correct_word = [];
   for (let i = 0; i < correct_word.length; i++) {
     temp_correct_word.push(correct_word[i]);
@@ -83,7 +85,29 @@ function checkGuess() {
     }
   }
   if (current_guess.join("") == correct_word.join("")) {
-    console.log("Yay, you did it!");
     enabled = false;
+    triggerVictory(guessNumber);
   }
+  else if (guessNumber >= maxGuesses) {
+    triggerLoss();
+  }
+}
+
+function triggerVictory(guesses) {
+  document.getElementById("results-modal").style.display = "block";
+  document.getElementById("guess-count").innerHTML = `You completed the puzzle in ${guesses} guesses!`;
+  document.getElementById("main-result").innerHTML = "Nice work!";
+  document.getElementById("share-results").addEventListener("click", shareResults);
+}
+function triggerLoss() {
+  document.getElementById("results-modal").style.display = "block";
+  document.getElementById("main-result").innerHTML = "Good attempt!";
+  document.getElementById("extra-note").innerHTML = "Try again tomorrow!";
+}
+function shareResults() {
+  const shareData = {
+    text: "I completed the daily Disneydle puzzle!",
+    url: "www.paultroach.com"
+  }
+  navigator.share(shareData);
 }
