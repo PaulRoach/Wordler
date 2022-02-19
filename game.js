@@ -1,5 +1,5 @@
 var wordLength = 5;
-var correct_word = ['R', 'A', 'P', 'U', 'N', 'Z', 'E', 'L'];
+var correct_word = ['S', 'T', 'I', 'T', 'C', 'H'];
 const maxLength = 8;
 const maxGuesses = 7;
 var current_guess = [];
@@ -109,27 +109,27 @@ function checkGuess() {
   }
   if (current_guess.join("") == correct_word.join("")) {
     enabled = false;
-    triggerVictory();
+    triggerVictory(guessNumber);
   }
   else if (guessNumber >= maxGuesses) {
     triggerLoss();
   }
 }
 
-function triggerVictory() {
+function triggerVictory(numberOfGuesses) {
   document.getElementById("results-modal").style.display = "block";
   document.getElementById("guess-count").innerHTML = `You completed the puzzle in ${guessNumber} guesses!`;
   document.getElementById("main-result").innerHTML = "Nice work!";
-  document.getElementById("share-results").addEventListener("click", shareResults);
+  document.getElementById("share-results").addEventListener("click", shareResults(numberOfGuesses));
 }
 function triggerLoss() {
   document.getElementById("results-modal").style.display = "block";
   document.getElementById("main-result").innerHTML = "Good attempt!";
   document.getElementById("extra-note").innerHTML = "Try again tomorrow!";
 }
-function shareResults() {
+function shareResults(numberOfGuesses) {
   const shareData = {
-    text: `I completed the daily Disnerdle puzzle in ${guessNumber} guesses!\r\n`,
+    text: `I completed the daily Disnerdle puzzle in ${numberOfGuesses} guesses!\r\n`,
     url: ""
   }
   navigator.share(shareData);
