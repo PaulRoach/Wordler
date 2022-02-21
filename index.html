@@ -3,28 +3,125 @@
 
 <head>
   <title>Disnerdle</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <script src="game.js"></script>
 </head>
 
 <body>
-  <div class="header">Disnerdle</div>
+  <div class="header">
+    <button class="header-button">?</button>
+    Disnerdle
+    <button class="header-button">></button>
+  </div>
   <div class="game">
-    <div class="game-board">
-      <div class="game-row">
-        <div class="game-tile">F</div>
-        <div class="game-tile">L</div>
-        <div class="game-tile">O</div>
-        <div class="game-tile">U</div>
-        <div class="game-tile">N</div>
-        <div class="game-tile">D</div>
-        <div class="game-tile">E</div>
-        <div class="game-tile">R</div>
+    <div class="game-board" id="game-board">
+      <div class="game-row" id="guess_1">
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+      </div>
+      <div class="game-row" id="guess_2">
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+      </div>
+      <div class="game-row" id="guess_3">
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+      </div>
+      <div class="game-row" id="guess_4">
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+      </div>
+      <div class="game-row" id="guess_5">
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+      </div>
+      <div class="game-row" id="guess_6">
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+      </div>
+      <div class="game-row" id="guess_7">
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
+        <div class="game-tile"></div>
       </div>
     </div>
-    <div class="keyboard">
-      keyboard
+  </div>
+  <div class="keyboard">
+    <div class="keyboard-row">
+      <div class="key-tile" onclick="virtualKeyPress('Q')">Q</div>
+      <div class="key-tile" onclick="virtualKeyPress('W')">W</div>
+      <div class="key-tile" onclick="virtualKeyPress('E')">E</div>
+      <div class="key-tile" onclick="virtualKeyPress('R')">R</div>
+      <div class="key-tile" onclick="virtualKeyPress('T')">T</div>
+      <div class="key-tile" onclick="virtualKeyPress('Y')">Y</div>
+      <div class="key-tile" onclick="virtualKeyPress('U')">U</div>
+      <div class="key-tile" onclick="virtualKeyPress('I')">I</div>
+      <div class="key-tile" onclick="virtualKeyPress('O')">O</div>
+      <div class="key-tile" onclick="virtualKeyPress('P')">P</div>
+    </div>
+    <div class="keyboard-row">
+      <div class="key-tile" onclick="virtualKeyPress('A')">A</div>
+      <div class="key-tile" onclick="virtualKeyPress('S')">S</div>
+      <div class="key-tile" onclick="virtualKeyPress('D')">D</div>
+      <div class="key-tile" onclick="virtualKeyPress('F')">F</div>
+      <div class="key-tile" onclick="virtualKeyPress('G')">G</div>
+      <div class="key-tile" onclick="virtualKeyPress('H')">H</div>
+      <div class="key-tile" onclick="virtualKeyPress('J')">J</div>
+      <div class="key-tile" onclick="virtualKeyPress('K')">K</div>
+      <div class="key-tile" onclick="virtualKeyPress('L')">L</div>
+    </div>
+    <div class="keyboard-row">
+      <div class="key-tile" onclick="virtualKeyPress('Enter')" id="enter-key">ENTER</div>
+      <div class="key-tile" onclick="virtualKeyPress('Z')">Z</div>
+      <div class="key-tile" onclick="virtualKeyPress('X')">X</div>
+      <div class="key-tile" onclick="virtualKeyPress('C')">C</div>
+      <div class="key-tile" onclick="virtualKeyPress('V')">V</div>
+      <div class="key-tile" onclick="virtualKeyPress('B')">B</div>
+      <div class="key-tile" onclick="virtualKeyPress('N')">N</div>
+      <div class="key-tile" onclick="virtualKeyPress('M')">M</div>
+      <div class="key-tile" onclick="virtualKeyPress('Backspace')" id="back-key">BACK</div>
     </div>
   </div>
 </body>

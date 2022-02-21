@@ -1,73 +1,100 @@
-:root{
-  --game-max-width: 500px;
-}
-
 * {
   margin: 0;
   padding: 0;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background-color: #202020;
+  background-color: #303030;
   color: white;
 }
 
-.header{
-  width: 100%;
-  height: 75px;
-  text-align: center;
-  line-height: 75px;
-  font-size: 35px;
-  border-bottom: 1px solid #c5c5c5;
-}
-
-.game{
-  height: calc(100vh - 76px);
-  margin: 0 auto;
+html,body{
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-flow: column;
+  text-align: center;
   justify-content: center;
   align-items: center;
 }
 
-.game-board{
-  width: 100%;
-  height: 70%;
-  background-color: maroon;
-  display: grid;
-  grid-template-columns: auto;
-  row-gap: 10px;
-  align-content: start;
+/* HEADER STYLES */
+.header{
+  width: calc(100vw - 2px);
+  border: 1px dotted #c2c2c2;
+  flex: 0 1 70px;
 }
 
+/* GAME STYLES */
+.game{
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.game-board{
+  display: grid;
+  grid-template-rows: repeat(7, auto);
+  row-gap: 4px;
+}
 .game-row{
-  width: 100%;
-  background-color: green;
   display: grid;
   grid-template-columns: repeat(8, auto);
-  column-gap: 10px;
+  column-gap: 4px;
+  justify-content: center;
 }
-
 .game-tile{
-  height: min(70px, 8vw);
-  width: min(70px, 8vw);
-  border: 2px solid #919191;
+  box-sizing: border-box;
+  border: 2px solid rgb(148, 148, 148);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
+  width: min(min(5vh, 10vw), 50px);
+  text-transform: uppercase;
 }
 
+/* TILE STYLES*/
+.present{
+  background-color: #9c9c00;
+  border: none;
+}
+.correct{
+  background-color: #00bd00;
+  border: none;
+}
+
+/* KEYBOARD STYLES */
 .keyboard{
   width: 100%;
-  height: 30%;
-  background-color: midnightblue;
+  flex: 0 1 300px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+}
+.keyboard-row{
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.key-tile{
+  background-color: #757575;
+  display: flex;
   justify-content: center;
   align-items: center;
+  width: 8%;
+  border-radius: 10px;
+  margin: 3px;
+}
+#enter-key, #back-key{
+  flex: 1 1 auto;
 }
 
-@viewport {
-  width: device-width ;
-  zoom: 1.0 ;
-}
-
-@media screen and (max-width: 600px){
+@media only screen and (min-width: 500px){
+  .game-board{
+    width: 500px;
+  }
+  .keyboard{
+    width: 500px;
+  }
 }
