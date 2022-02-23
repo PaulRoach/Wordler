@@ -1,5 +1,5 @@
 var wordLength = 5;
-var correct_word = ['L', 'E', 'F', 'O', 'U'];
+var correct_word = ['T', 'I', 'A', 'N', 'A'];
 const maxLength = 8;
 const maxGuesses = 7;
 var current_guess = [];
